@@ -10,7 +10,7 @@ The command-line switches are:
  *  -map              Specifies input map name. The last occurrence in all resources will be used.
  *  -out              Specifies output WAD filename. Default is wstomped.wad
  *  -outmap           Specifies output map name (will be replaced if already present in output WAD)
- *  -defswani         Specifies custom DEFSWANI.DAT file. It is used by the script to enumerate vanilla animations and switches (those present in IWAD).
+ *  -defswani         Specifies custom DEFSWANI.DAT file. It is used by the script to enumerate vanilla animations and switches (those present in IWAD). Default is swan_defswani.dat.
 
 Features:
  * Does not copy unused textures.
