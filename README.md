@@ -5,12 +5,12 @@ The only thing required to run the script is Python 2.7. No additional modules a
 The main file is wadstomp.py.
 
 The command-line switches are:
-  -iwad             Specifies main WAD resource (typically doom2.wad)
-  -file             Specifies additional WAD resource(s)
-  -map              Specifies input map name. The last occurrence in all resources will be used.
-  -out              Specifies output WAD filename. Default is wstomped.wad
-  -outmap           Specifies output map name (will be replaced if already present in output WAD)
-  -defswani         Specifies custom DEFSWANI.DAT file. It is used by the script to enumerate vanilla animations and switches (those present in IWAD).
+ *  -iwad             Specifies main WAD resource (typically doom2.wad)
+ *  -file             Specifies additional WAD resource(s)
+ *  -map              Specifies input map name. The last occurrence in all resources will be used.
+ *  -out              Specifies output WAD filename. Default is wstomped.wad
+ *  -outmap           Specifies output map name (will be replaced if already present in output WAD)
+ *  -defswani         Specifies custom DEFSWANI.DAT file. It is used by the script to enumerate vanilla animations and switches (those present in IWAD).
 
 Features:
  * Does not copy unused textures.
