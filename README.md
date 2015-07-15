@@ -18,3 +18,4 @@ Features:
  * In case of different overlapping texture packs, does not duplicate patches, flats and textures.
  * Supports merging of ANIMATED and SWITCHES lumps.
  * Reads TEXTURE1, TEXTURE2, F_* and FF_*. Writes only TEXTURE2 and FF_* (although dummy IWAD TEXTURE1 is present).
+ * Copies music (if any) to their corresponding names for vanilla Doom2 maps (01 through 32) and Doom1 maps (E1M1 through E3M9).
