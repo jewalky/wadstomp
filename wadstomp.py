@@ -965,7 +965,7 @@ if NameMap is not None:
 			try:
 				MapIdx1 = int(mapname[1])
 				MapIdx2 = int(mapname[3])
-				if MapIdx1 >= 1 and MapIdx <= 3 and MapIdx2 >= 1 and MapIdx2 <= 9:
+				if MapIdx1 >= 1 and MapIdx1 <= 3 and MapIdx2 >= 1 and MapIdx2 <= 9:
 					return 'D_E%dM%d' % (MapIdx1, MapIdx2)
 			except:
 				pass
