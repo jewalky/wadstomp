@@ -944,6 +944,43 @@ for sector in Map.sectors:
 		sector.tex_ceiling = FlatsToRename[sector.tex_ceiling]
 
 		
+# ############################## #
+#   копируем музыку, если есть   #
+# ############################## #
+if NameMap is not None:
+	MusicList_Doom2 = ['D_RUNNIN', 'D_STALKS', 'D_COUNTD', 'D_BETWEE', 'D_DOOM', 'D_THE_DA', 'D_SHAWN', 'D_DDTBLU', 'D_IN_CIT', 'D_DEAD',
+					   'D_STLKS2', 'D_THEDA2', 'D_DOOM2', 'D_DDTBL2', 'D_RUNNI2', 'D_DEAD2', 'D_STLKS3', 'D_ROMERO', 'D_SHAWN2', 'D_MESSAG',
+					   'D_COUNT2', 'D_DDTBL3', 'D_AMPIE', 'D_THEDA3', 'D_ADRIAN', 'D_MESSG2', 'D_ROMER2', 'D_TENSE', 'D_SHAWN3', 'D_OPENIN',
+					   'D_EVIL', 'D_ULTIMA']
+	# doom 1 is simply d_e#m#, and we dont handle episode 4
+	def get_music_name(mapname):
+		if mapname[0:3].upper() == 'MAP' and len(mapname) == 5: # doom 2 format
+			try:
+				MapIdx = int(mapname[3:5])-1
+				if MapIdx >= 0 and MapIdx < 32:
+					return MusicList_Doom2[MapIdx]
+			except:
+				pass
+		elif mapname[0].upper() == 'E' and mapname[2].upper() == 'M' and len(mapname) == 4: # doom 1 format
+			try:
+				MapIdx1 = int(mapname[1])
+				MapIdx2 = int(mapname[3])
+				if MapIdx1 >= 1 and MapIdx <= 3 and MapIdx2 >= 1 and MapIdx2 <= 9:
+					return 'D_E%dM%d' % (MapIdx1, MapIdx2)
+			except:
+				pass
+		return None
+		
+	NameMusicSrc = get_music_name(NameMap)
+	NameMusicDst = get_music_name(NameOutMap)
+	if NameMusicSrc is not None and NameMusicDst is not None:
+		MusicSrc = global_get_last_file(NameMusicSrc)
+		if MusicSrc is not None:
+			print('Copying custom music from %s to %s.' % (NameMusicSrc, NameMusicDst))
+			MusicDst = OutWAD.get_lump_or_new(NameMusicDst)
+			MusicDst.data = MusicSrc.data
+		
+		
 # ############################# #
 #   запиливаем выхлопной файл   #
 # ############################# #
