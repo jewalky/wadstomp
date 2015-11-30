@@ -853,6 +853,7 @@ for anim in TexturesToCopyAnimated:
 	anim_new.last = names_new[-1]
 	anim_new.names = names_new
 	anim_new.lumps = lumps_new
+	calc_animated_hash(anim_new, False, OutWAD, TexOutWAD)
 	SwanOutWAD.textures.append(anim_new)
 
 
